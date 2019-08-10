@@ -185,6 +185,7 @@
   </div>
 </div>
 </div>
+<?php $suggest = array_merge($ex['name'], $ex['sector']); ?>
 <script src="<?php echo base_url('assets/typeahead.js') ?>"></script>
 <script src="<?php //echo base_url('assets/myjs.js') ?>"></script>
 <script>
@@ -231,7 +232,7 @@ $(document).ready(function () {
 
 /************ Auto suggest for expert's name and sector START ************/
 
-<?php $suggest = array_merge($ex['name'], $ex['sector']); ?>
+
 
 var substringMatcher = function(strs) {
     return function findMatches(q, cb) {
@@ -297,7 +298,7 @@ function searchExperts()
                     else
                     {table += "<td>In-Person</td>";}
                     table += "<td>"+exp.country+"</td>";
-                    table += "<td><div class='text-center'> <button  class='btn btn-outline-dark' id='"+exp.id+"'>Request</button></div></td>";
+                    table += "<td><div class='text-center'> <button  class='btn btn-outline-dark request'  eid='"+exp.id+"' expert='"+exp.name+"'>Request</button></div></td>";
                     table += "</tr>";
               });
               var start = data.start-0;
@@ -357,7 +358,8 @@ $('#loadmore').on('click',function(e){
 });
 
 /******************Request Form Popup START ********************/
-$('.request').on('click',function(e){
+
+$(document).on('click','.request',function(e){
   e.preventDefault();
 var eid = $(this).attr('eid'); //Expert id
 var expertName = $(this).attr('expert');
@@ -428,7 +430,10 @@ $(document).ready(function () {
 		});
   });
 /******************Submit Quote request END ********************/
-
-
+$(function(){
+  if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+});
 
 </script>
