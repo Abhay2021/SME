@@ -1,0 +1,40 @@
+/* Fixed header table */
+body {
+    background-color: #efefef !important;
+  }
+/* .table td {
+padding: .5rem .5rem !important;
+} */
+  
+.tableFixHead {
+overflow-y: auto!important;
+height: 450px!important;
+}
+
+.tableFixHead th {
+position: sticky!important;
+top: 0!important;
+z-index: 9999999!important;
+}
+
+.tableFixHead table {
+border-collapse: collapse!important;
+width: 100%!important;
+}
+
+.tableFixHead th {
+background: #ffffff!important;
+}
+
+#requestForm{
+z-index: 99999999!important;
+}
+@media (min-width: 576px){
+#search, .tt-menu{
+  width:500px !important;
+}
+}
+.tt-menu{
+  z-index: 99999999!important;
+  background-color: white !important;
+}
